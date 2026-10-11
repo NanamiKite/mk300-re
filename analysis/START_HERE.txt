@@ -1,0 +1,63 @@
+MK300 固件逆向分析
+
+本项目保存 MK300 综合效果器的固件逆向工具和研究记录。先阅读本目录中的分析说明；
+准备固件并运行下方命令后，可打开 REPORT.html 查看封装格式、两套 SysEx、42 项 CC
+指南记录、GUI 页面关系和证据地址。
+
+Git 保留 tools/ 中的源码、自写说明、挑选并注释的反汇编片段、整理后的数据表和
+sources/ 中的 SOURCES.json 来源清单。原厂升级包、extracted/ 解包目录、完整反汇编、
+生成的 REPORT.html、verification.json 本地验证记录，以及外部资料副本均由 .gitignore
+排除。这些文件仍可保存在本地，克隆仓库时不会自动取得。
+
+分析使用的固件需自行准备，放在项目根目录并命名为 MK300.fwsc：
+  版本：MK300_073
+  大小：1,363,636 字节
+  SHA256：1c04fc3f29e984603942f9d702a4df4d074fed491ad34bc21236ad46392c5b64
+本文和数据表中的固定地址对应这份固件，不应直接用于其他版本。
+
+本地结果
+  extracted/manifest.json       原文件 SHA256、封装与分区布局、CRC 校验结果
+  extracted/files/app.bin       解混淆后的应用程序
+  extracted/app.elf             用于 pi32v2 反汇编的合成 ELF，不含原始符号
+  extracted/top/uboot.boot      BANKCB 解混淆后的启动程序
+  extracted/container/          升级包的 10 个文件，编码元数据已还原
+  extracted/container_encoded/  元数据解码前的原始字节
+  extracted/midi_cc.json        固件内的 CC 指南表，保留原始提示和偏移
+  extracted/gui_pages.json      具名 GUI 描述项、未知字段和候选回调地址
+  extracted/strings.tsv         字符串、app.bin 偏移和运行地址
+  protocol_handlers.asm         组件式协议处理代码的反汇编
+  component_handlers.json       组件号和处理入口
+  jump_tables.json              关键分支的跳转表
+  NES_LIMITS.txt                游戏导入 25 KB 限制的分析和证据地址
+  game_loader.asm               NES 加载、Mapper 分发和 GAME 边界检查的反汇编
+  HARDWARE_FEASIBILITY.txt      外围配置、第三方固件可行性和尚缺的板级信息
+  TEARDOWN_SOURCES.txt          拆机视频、论坛照片、FCC 内部照片档案及获取状态
+  hardware_inventory.json       时钟/存储配置、GUI 尺寸和按键矩阵原始数据
+  hardware_evidence.asm         GPIO、按键扫描和平台初始化的反汇编摘录
+  app.disassembly.asm.gz        完整线性反汇编，含数据区，不能全部按代码解释
+  sources/                      厂商文档、外部抓包研究及 teardown/ 拆机公开缩略图
+
+在当前项目根目录复现
+  python3 tools/inspect_fwsc.py MK300.fwsc --out analysis/extracted
+  python3 tools/mk300_protocol.py self-check
+  python3 tools/mk300_protocol.py version-query
+  python3 tools/mk300_protocol.py component 1 1 0x7f
+  python3 tools/mk300_protocol.py efcs-read 1 0 448
+  python3 tools/mk300_protocol.py cc 22 127
+  python3 tools/build_report.py
+
+以上 Python 工具只使用标准库。生成报告前，需先将固件解包到 analysis/extracted。
+若该目录已存在，可直接使用已有结果生成报告；另行核对解包结果时，应指定新的输出目录。
+解包和报告生成命令不会下载外部资料，也不会生成完整反汇编。
+
+厂商文档和第三方协议说明的下载地址、SHA256 见 sources/SOURCES.json；拆机照片的
+来源见 sources/teardown/SOURCES.json。需要查看报告中的这些本地链接时，按来源清单
+取得文件并放到清单指定的位置。
+
+完整反汇编需要杰理 pi32v2 工具链。将其 objdump 加入 PATH 后，可运行：
+  objdump -d -print-imm-hex -no-show-raw-insn analysis/extracted/app.elf > analysis/app.disassembly.asm
+  gzip -n analysis/app.disassembly.asm
+
+解包器只读取原固件，并拒绝覆盖已有输出目录。协议工具只生成或解析字节，不向设备发送报文。
+已有验证包括各层 CRC、重复解包字节一致性、损坏头部拒绝、5 条公开 M-EFCS 报文向量和 HTML 布局。
+组件式协议由反汇编推导，尚未通过 USB/DIN/蓝牙实机收发验证，也未模拟完整设备屏幕。

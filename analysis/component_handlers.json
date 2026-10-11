@@ -1,0 +1,86 @@
+[
+  {
+    "component": 0,
+    "name": "PRESET",
+    "address": "0x18058f3e",
+    "app_offset": "0x58e1e",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 1,
+    "name": "MODULE",
+    "address": "0x180584ae",
+    "app_offset": "0x5838e",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 2,
+    "name": "PARAM",
+    "address": "0x1805870e",
+    "app_offset": "0x585ee",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 3,
+    "name": "DRUM",
+    "address": "0x18057bcc",
+    "app_offset": "0x57aac",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 4,
+    "name": "LOOPER",
+    "address": "0x18057dba",
+    "app_offset": "0x57c9a",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 5,
+    "name": "TUNER",
+    "address": "0x18057f4e",
+    "app_offset": "0x57e2e",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 6,
+    "name": "GLOBAL",
+    "address": "0x18058018",
+    "app_offset": "0x57ef8",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 7,
+    "name": "EQ",
+    "address": "0x18058944",
+    "app_offset": "0x58824",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 8,
+    "name": "HW",
+    "address": "0x180582e2",
+    "app_offset": "0x581c2",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 9,
+    "name": "SYSTEM",
+    "address": "0x1805920c",
+    "app_offset": "0x590ec",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 10,
+    "name": "SNAPSHOT",
+    "address": "0x18058e06",
+    "app_offset": "0x58ce6",
+    "evidence": "static-disassembly"
+  },
+  {
+    "component": 11,
+    "name": "RESOURCE",
+    "address": "0x18058b72",
+    "app_offset": "0x58a52",
+    "evidence": "static-disassembly"
+  }
+]

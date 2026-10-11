@@ -1,0 +1,20 @@
+[
+  {
+    "file": "MK-300-manual.pdf",
+    "url": "https://manualf.oss-cn-hongkong.aliyuncs.com/manual/Combined-Effect-Pedals/MK-300.pdf",
+    "accessed_date": "2026-10-11",
+    "sha256": "7ec5783f02f4885a7277313e1c9833d4ecbc2b328d6b6c1054bdd4f834f93eeb"
+  },
+  {
+    "file": "MK300_MIDI.docx",
+    "url": "https://yms-file-store.oss-cn-hongkong.aliyuncs.com/software/releaseNote/firmware/MK300%20MIDI%E6%96%B0%E5%A2%9E%E6%8E%A7%E5%88%B6%E8%A1%A8.docx",
+    "accessed_date": "2026-10-11",
+    "sha256": "bdafc53f7b2a1e4fbdf09e376c60194add0884ed7e57c2d11ed3c7942d4463ef"
+  },
+  {
+    "file": "community_protocol.md",
+    "url": "https://raw.githubusercontent.com/jpfaria/mvave/main/docs/protocol.md",
+    "accessed_date": "2026-10-11",
+    "sha256": "96dc7143725d7ca3ed7bb65197a722da1d064f19417246c3bd07f5392ab1c00e"
+  }
+]

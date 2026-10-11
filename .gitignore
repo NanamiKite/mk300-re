@@ -1,0 +1,33 @@
+# 原厂升级包和本地生成的升级包
+*.fwsc
+*.ufw
+
+# 固件解包结果：二进制、合成 ELF、字符串和自动提取的数据表
+/analysis/extracted/
+
+# 完整反汇编、生成的报告和本地验证记录
+# 挑选并注释过的 .asm 片段仍保留在版本控制范围内
+/analysis/app.disassembly.asm
+/analysis/app.disassembly.asm.gz
+/analysis/REPORT.html
+/analysis/verification.json
+
+# 外部资料及其文本转换副本，只保留来源清单
+/analysis/sources/*
+!/analysis/sources/SOURCES.json
+!/analysis/sources/teardown/
+/analysis/sources/teardown/*
+!/analysis/sources/teardown/SOURCES.json
+
+# Python 缓存和本地虚拟环境
+__pycache__/
+*.py[cod]
+/.venv/
+/venv/
+
+# 编辑器临时文件和系统目录元数据
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

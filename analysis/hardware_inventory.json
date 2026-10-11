@@ -1,0 +1,152 @@
+{
+  "firmware": "MK300.fwsc",
+  "firmware_sha256": "1c04fc3f29e984603942f9d702a4df4d074fed491ad34bc21236ad46392c5b64",
+  "assessment_date": "2026-10-11",
+  "scope": "Static firmware inspection and manufacturer documentation; no device tests",
+  "platform": {
+    "family": "AC792N",
+    "sdk_platform": "WL83",
+    "instruction_set": "pi32v2",
+    "specific_package": null,
+    "os_evidence": "UCOS/os/os_core.c and os_task.c embedded paths",
+    "sdk_embedded_tag": "2024-09-24"
+  },
+  "firmware_configuration": {
+    "source": "extracted/container/isd_config.ini",
+    "cpu_clock_hz": 360000000,
+    "oscillator_hz": 24000000,
+    "lsb_clock_hz": 60000000,
+    "hsb_divisor": 2,
+    "sfc_clock_hz": 96000000,
+    "flash_bytes": 8388608,
+    "memory_type": "DDR1",
+    "memory_bytes": 8388608,
+    "memory_clock_hz": 250000000,
+    "download_model": "usb",
+    "new_flash_fs": "YES",
+    "runtime_clock_verified": false
+  },
+  "display": {
+    "manual_diagonal_inches": 3.5,
+    "logical_gui_width": 480,
+    "logical_gui_height": 320,
+    "gui_size_call_sites": [
+      "0x18032b18",
+      "0x18044f0e",
+      "0x1804d166",
+      "0x180546fe"
+    ],
+    "controller": null,
+    "bus": null,
+    "physical_pixel_resolution_verified": false
+  },
+  "key_matrix": {
+    "status": "static code evidence; physical button labels not mapped",
+    "rows": 6,
+    "columns": 5,
+    "column_raw_pin_ids": [
+      "0x26",
+      "0x27",
+      "0x28",
+      "0x29",
+      "0x38"
+    ],
+    "column_table_address": "0x180f7c27",
+    "row_records": [
+      {
+        "row": 0,
+        "raw_pin_id": "0x24",
+        "settling_delay_argument": 100,
+        "table_address": "0x180fccd4"
+      },
+      {
+        "row": 1,
+        "raw_pin_id": "0x52",
+        "settling_delay_argument": 100,
+        "table_address": "0x180fcce0"
+      },
+      {
+        "row": 2,
+        "raw_pin_id": "0x81",
+        "settling_delay_argument": 400,
+        "table_address": "0x180fccec"
+      },
+      {
+        "row": 3,
+        "raw_pin_id": "0x80",
+        "settling_delay_argument": 400,
+        "table_address": "0x180fccf8"
+      },
+      {
+        "row": 4,
+        "raw_pin_id": "0xb",
+        "settling_delay_argument": 100,
+        "table_address": "0x180fcd04"
+      },
+      {
+        "row": 5,
+        "raw_pin_id": "0x25",
+        "settling_delay_argument": 100,
+        "table_address": "0x180fcd10"
+      }
+    ],
+    "row_record_stride": 12,
+    "logical_keys": 21,
+    "logical_key_to_matrix_bit": [
+      4,
+      0,
+      5,
+      1,
+      6,
+      10,
+      15,
+      20,
+      25,
+      16,
+      11,
+      21,
+      26,
+      2,
+      7,
+      12,
+      17,
+      29,
+      24,
+      28,
+      23
+    ],
+    "logical_key_table_address": "0x180f9143",
+    "boot_scan_code": "0x1808eaa8..0x1808eb4a",
+    "normal_event_code": "0x18087d1a",
+    "gpio_id_decoder": "0x18053df0",
+    "gpio_bank_table_address": "0x1810a280",
+    "gpio_bank_base_addresses": [
+      "0xfc7100",
+      "0xfc7200",
+      "0xfc7300",
+      "0xfc7400",
+      "0xfc7500",
+      "0xfe0224",
+      "0xfc7c00",
+      "0xfc7d00"
+    ],
+    "notes": [
+      "Raw IDs are firmware enum values, not physical package pin numbers.",
+      "Row table offset +4 is read as a 16-bit settling-delay argument; time unit not confirmed.",
+      "0x80 and 0x81 use separate special-I/O functions; physical names not assigned."
+    ]
+  },
+  "unresolved": [
+    "exact SoC package and board revision",
+    "audio codec model and physical digital audio path",
+    "LCD controller, bus, reset/backlight GPIOs and timings",
+    "knob/pedal ADC assignments and calibration",
+    "key matrix positions to front-panel labels",
+    "LED drivers and buses",
+    "power/charging ICs and mute sequencing",
+    "full nonvolatile storage topology and looper encoding",
+    "update authentication checks and rollback/recovery procedure",
+    "original DSP ABI and dependency boundaries"
+  ],
+  "no_flash_image_generated": true
+}

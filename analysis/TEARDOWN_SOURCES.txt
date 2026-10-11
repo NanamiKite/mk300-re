@@ -1,0 +1,58 @@
+MK300 网上拆解资料
+检索与核对日期：2026-10-11
+
+结论
+  已找到拆机视频、论坛开盖照片和 FCC 内部照片档案。
+  已下载并查看论坛公开缩略图 6 张，可以观察内部布局，但无法读出主控、
+  ADC/DAC、Flash 或 LCD 的完整型号。尚未取得 FCC 原始 PDF 或视频画面。
+  网上样机与用户设备的 PCB 版本也尚未逐项比对。
+
+1. FCC 内部照片档案：最值得继续取得的板级证据
+  https://fccid.io/2ARCP-MK-300/Internal-Photos/Internal-photos-8216891
+  官方附件入口：
+  https://apps.fcc.gov/eas/GetApplicationAttachment.html?id=8216891
+  FCC ID：2ARCP-MK-300
+  申请人：Sinco Intelligent Technology Co., Ltd.
+  设备：MK-300 Amp Modeler/Effects Processor
+  文档 ID：8216891；类型：Internal Photos；10 页。
+  索引列出的创建日期为 2025-04-11，公开日期为 2025-04-20，大小为 1,370,554 字节。
+  索引所列 SHA-256（尚未下载，未经本地校验）：
+  f839ff41b8de18cd5131ccb6220c3e733c85e15479e05293dc782b9ce9dc43f7
+  索引标注该文档不保密，但本次下载官方附件和公开镜像时均收到 HTTP 403。
+  因此只核实了目录元数据，尚未查看内部照片 PDF，也未从中辨认芯片。
+  同页的 SCH 和 Block Diagram 也只有元数据，尚未取得原理图或框图正文。
+
+2. 俄语拆机视频
+  https://rutube.ru/video/35a1b1a4254a6751bff5a1b87c2cd2c0/
+  作者：Ivan Flickerman；发布日期：2025-08-14；时长：13 分 28 秒。
+  标题大意：M-VAVE MK-300 里面有什么？拆开效果器并调整 WAH 踏板。
+  标题和作者介绍明确提到拆机及表情踏板调整。
+  本次已读取公开页面，但播放接口返回 403。尚未观看视频，因此未标注片段时间点。
+
+3. 西班牙 Guitarristas 论坛的实际开盖照片
+  https://www.guitarristas.info/foros/comunidad-m-vave-mk-300-mk-20/343739/pagina35
+  第 420 楼，Aroga，2025-06-09：内部总览、电池、踏板机械部分，共 3 张。
+  照片可见大块电路板、细长电路板、接口板、板间排线和独立电池。
+  原帖作者观察到，其样机的接口板与主板之间排线很短。
+  本地：sources/teardown/204285_interior.jpg
+        sources/teardown/204286_battery.jpg
+        sources/teardown/204287_pedal.jpg
+
+  https://www.guitarristas.info/foros/comunidad-m-vave-mk-300-mk-20/343739/pagina54
+  第 642 楼，jaropda，2025-08-31：内部总览及脚钉位置标注。
+  第 647 楼，baratijas，2025-09-01：内部局部照片与踏板调整讨论。
+  照片可见踏板部分的小板和蓝色可调元件，尚不能确定型号和完整电路。
+  本地：sources/teardown/206288_board.jpg
+        sources/teardown/206289_board.jpg
+        sources/teardown/206314_interior.jpg
+
+  以上图片均为网站公开展示的缩略图，尺寸约 169–400 像素，无法可靠辨认芯片丝印。
+  论坛注明下载附件需要登录。本次只保存了公开展示的图片，未取得原始附件。
+  每张图的来源、尺寸和本地 SHA-256 见 sources/teardown/SOURCES.json。
+
+对第三方固件可行性判断的影响
+  这些照片提供了实际内部结构，可与外观和产品参数一同参考。
+  主控平台为 AC792N/WL83 的判断仍来自本地固件，尚未通过芯片丝印独立确认。
+  音频转换器型号、屏幕型号与接口、引脚连接和 PCB 版本仍待确认。
+  下一份最有价值的资料是 FCC 内部照片原始 PDF，或主板元件面及屏排线高清图。
+  可行性结论不变：已有技术基础，但还不足以生成经实机验证的整机替换固件。
